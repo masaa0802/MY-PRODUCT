@@ -1,0 +1,57 @@
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// // Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// /* header */
+* {
+    margin:0px;
+    padding: 0px;
+}
+.header{
+    height: 150px;
+    width: 100%;
+    background: linear-gradient(#cdd1fa,#0000 50%);
+}
+img{
+    margin-top: 20px;
+}
+.buttons{
+    margin: 50px;
+    display: inline-flex;
+    position: absolute;
+    right: 300px;
+}
+.button{
+    font-weight: bolder;
+    margin: 50px;
+}
+
+/* top */
+.top-content{
+    margin-top: 50px;
+    text-align: center;
+    position: relative;
+}
+.login-box{
+    height: 300px;
+    width: 500px;
+    margin: 40px;
+    background-color: #d4d4ff5c;
+    display: inline-block;
+}
+
+.login-header{
+    padding: 10px;
+    background-color: #a3b9fd5c;
+}

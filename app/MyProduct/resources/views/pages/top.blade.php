@@ -5,69 +5,71 @@
 @section('content')
 
 <div class="top-content">
-    <div class="leftside">
-
-    </div>
-    <div class="main">
-        <h1>自分だけの『PRODUCT』を共有しよう</h1>
-        <h5>未経験エンジニア専用のポートフォリオ（アプリ）共有サイト</h5>
-        <div class="login-box">
-            <div class="login-header">
-                <p>登録済みの方はこちらからログイン</p>
+    <div class="container">
+        <div class="row">
+            <div class="col align-self-end">
+                <img src="img/men.png" width="160" height="200">
             </div>
-            <!-- Session Status -->
-            <x-auth-session-status class="mb-4" :status="session('status')" />
+            <div class="col-7">
+                <h1><strong>自分だけの『PRODUCT』を共有しよう</strong></h1>
+                <h5>未経験エンジニア専用のポートフォリオ（アプリ）共有サイト</h5>
+                <div class="login-box">
+                    <div class="login-header">
+                        <p class="mb-0">登録済みの方はこちらからログイン</p>
+                    </div>
+                    <!-- Session Status -->
+                    <x-auth-session-status class="mb-4" :status="session('status')" />
 
-            <!-- Validation Errors -->
-            <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                    <!-- Validation Errors -->
+                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
+                    <form method="POST" action="{{ route('login') }}" class="mt-4">
+                        @csrf
 
-                <!-- Email Address -->
-                <div>
-                    <x-label for="email" :value="__('メールアドレス')" />
+                        <!-- Email Address -->
+                        <div>
+                            <x-label for="email" :value="__('メールアドレス')" />
 
-                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                            <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mt-4">
+                            <x-label for="password" :value="__('パスワード')" />
+
+                            <x-input id="password" class="block mt-1 ml-3 w-full"
+                                type="password"
+                                name="password"
+                                required autocomplete="current-password" />
+                        </div>
+
+                        <!-- Remember Me -->
+                        <div class="block mt-4">
+                            <label for="remember_me" class="inline-flex items-center">
+                                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
+                                <span class="ml-2 text-sm text-gray-600">{{ __('ログインのままにする') }}</span>
+                            </label>
+                        </div>
+
+                        <div class="flex items-center justify-end mt-4">
+                            @if (Route::has('password.request'))
+                                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                                    {{ __('パスワードを忘れましたか?') }}<br>
+                                </a>
+                            @endif
+
+                            <x-button class="ml-3 mt-3 btn btn-primary">
+                                {{ __('ログイン') }}
+                            </x-button>
+                        </div>
+                    </form>
                 </div>
-
-                <!-- Password -->
-                <div class="mt-4">
-                    <x-label for="password" :value="__('パスワード')" />
-
-                    <x-input id="password" class="block mt-1 w-full"
-                        type="password"
-                        name="password"
-                        required autocomplete="current-password" />
-                </div>
-
-                <!-- Remember Me -->
-                <div class="block mt-4">
-                    <label for="remember_me" class="inline-flex items-center">
-                        <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                        <span class="ml-2 text-sm text-gray-600">{{ __('ログインのままにする') }}</span>
-                    </label>
-                </div>
-
-                <div class="flex items-center justify-end mt-4">
-                    @if (Route::has('password.request'))
-                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                            {{ __('パスワードを忘れましたか?') }}
-                        </a>
-                    @endif
-
-                    <x-button class="ml-3">
-                        {{ __('ログイン') }}
-                    </x-button>
-                </div>
-            </form>
+            </div>
+            <div class="col">
+                <img src="img/women.png" width="160" height="200">
+            </div>
         </div>
     </div>
-    
-    <div class="rightside">
-
-    </div>
-    
 </div>
 
 @endsection

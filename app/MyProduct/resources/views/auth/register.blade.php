@@ -10,8 +10,21 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form class="m-4 text-center" method="POST" action="{{ route('register') }}">
+        <form class="m-4 text-center" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
             @csrf
+            {{-- Avater --}}
+            <div class="mt-4">
+                <label for="avatar" class="block mt-1 w-full">{{ __('プロフィール画像 (サイズは1024Kbyteまで）') }}</label>
+
+                <div class="col-md-6">
+                    <input id="avatar" type="file" name="avatar" class="@error('avatar') is-invalid @enderror">
+                    @error('avatar')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
 
             <!-- Name -->
             <div class="mt-4">

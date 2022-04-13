@@ -12,22 +12,27 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+    Route::get('/', function () {
+        return view('pages.top');
+    });
 
-Route::get('/', function () {
-    return view('pages.top');
-});
+    Route::get('/about', function () {
+        return view('pages.about');
+    });
 
-Route::get('/about', function () {
-    return view('pages.about');
-});
+    Route::get('/register', function () {
+        return view('auth.register');
+    });
 
-Route::get('/register', function () {
-    return view('auth.register');
-});
+    Route::get('emailindex', 'Admin\UserController@index');
+    Route::get('emailedit', 'Admin\UserController@edit');
+    Route::post('emailedit', 'Admin\UserController@update');
 
+    Route::get('/mypage', function () {
+        return view('pages.mypage');
+    })->middleware(['auth'])->name('mypage');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    // Route::get('users','UsersController@delete_confirm');　//警告画面に飛ばしたいため追記
 
-require __DIR__.'/auth.php';
+    require __DIR__.'/auth.php';
+    

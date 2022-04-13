@@ -10302,7 +10302,7 @@ p {
 }
 
 .register-box {
-  height: 430px;
+  height: 500px;
   width: 500px;
   margin: 40px;
   background-color: rgba(212, 212, 255, 0.3607843137);
@@ -10318,6 +10318,24 @@ p {
   margin-top: 0px;
   text-align: center;
   margin-bottom: 0px;
+}
+
+.menu {
+  height: 150px;
+  background-color: rgba(0, 191, 255, 0.27);
+  border-radius: 10px;
+  border: 4px solid rgba(0, 78, 255, 0.3215686275);
+  padding: 20px;
+  margin: 30px;
+}
+
+.Withdrawal {
+  height: 150px;
+  background-color: rgba(255, 0, 0, 0.27);
+  border-radius: 10px;
+  border: 4px solid rgba(255, 0, 0, 0.32);
+  padding: 20px;
+  margin: 30px;
 }
 
 /*!

@@ -1,21 +1,30 @@
+@extends('layouts.base')
+
+@section('title','退会')
+
+@section('content')
+
 <div class="container">
     <div class="card border-dark mb-3">
         <div class="card-header">
-          <h3>退会の確認</h3>
+          <h2><i class="fa-solid fa-triangle-exclamation"></i>退会手続きの前にご確認ください</h2>
         </div>
       <div class="card-body">
-        <p class="card-text">退会をすると投稿も全て削除されます。</p>
-        <p class="card-text">それでも退会をしますか？</p>
+        <p>会員を退会された場合には、現在保存されている情報は<br>
+            すべて削除されます。<br>
+            本当に退会してよろしいですか？</p>
       </div>
     </div>
 
     <div class="btn-group">
+        <div class="m-2">
+            <a href="/mypage" class="btn btn-primary">キャンセルする</a>
+        </div>
+
         {!! Form::open(['route'=>['users.destroy',Auth::user()->id],'method'=>'delete']) !!}
-            {!!Form::submit('退会する',['class'=>'btn btn-danger'])!!}
+            {!!Form::submit('退会する',['class'=>'m-2 btn btn-danger'])!!}
         {!!Form::close()!!}
 
-        <div class="ml-3">
-            <a href="/" class="btn btn-primary">キャンセルする</a>
-        </div>
     </div>
 </div>
+@endsection

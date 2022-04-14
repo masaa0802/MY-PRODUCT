@@ -12,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    use SoftDeletes; 
     /**
      * The attributes that are mass assignable.
      *
@@ -44,7 +44,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    use SoftDeletes; 
 
+    protected $dates = ['deleted_at'];
     
 }

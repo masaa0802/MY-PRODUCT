@@ -6,7 +6,7 @@
     <div class="buttons">
         <div class="button">
             <i class="fa-solid fa-user"></i>
-            <a class="header-menu" href="/">マイページ</a>
+            <a class="header-menu" href="/mypage">マイページ</a>
         </div>
         <div class="button">
             <i class="fa-solid fa-paper-plane"></i>

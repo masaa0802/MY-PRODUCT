@@ -17,8 +17,8 @@
         <main class="text-center">
             <script>
                 document.getElementById('logout').addEventListener('click', function(event) {
-                  event.preventDefault();
-                  document.getElementById('logout-form').submit();
+                    event.preventDefault();
+                    document.getElementById('logout-form').submit();
                 });
             </script>
             @yield('content')

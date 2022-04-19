@@ -9,10 +9,11 @@
         <div class="col">
             @if( Auth::check() )
                 <form action="{{ route('post_pages.update', $post->id) }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <div>
-                        <input type="file" id="video" name="video" class="form-control">
-                    </div>
+                    @csrf
+                    @method('PUT')
+                    {{-- <div>
+                        <input type="file" id="video" name="video" class="form-control" value="{{ old('video') ?: $post->video }}">
+                    </div> --}}
                     <div>
                         <label for="git_url" class="mt-3">GitHubのURL:</label>
                         <input name="git_url" value="{{ old('git_url') ?: $post->git_url }}" class="form-control  {{ $errors->has('git_url') ? 'is-invalid' : '' }}" placeholder="例)https://github.com/"/>
@@ -42,7 +43,7 @@
                         </div>
                     @endif
                     <div>
-                        <textarea name="body" value="{{ old('body') ?: $post->body }}" class="mt-3 form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" placeholder="内容の入力" style="height:200px;"></textarea>
+                        <textarea name="body" rows="10" class="mt-3 form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" placeholder="内容の入力" style="height:200px;">{!!nl2br(e(old('body') ?: $post->body))!!}</textarea>
                     </div>
                     @if ($errors->has('body'))
                         <div class="invalid-feedback">
@@ -50,10 +51,13 @@
                         </div>
                     @endif
                     <div class="mt-5">
-                        <a class="btn btn-secondary" href="{{ route('bbs.show', $post->id) }}">
+                        <a class="btn btn-secondary" href="{{ route('post_pages.index', $post->id) }}">
                             キャンセル
                         </a>
-                        <button class="mt-3 btn btn-primary" type="submit">編集する</button>
+                        <button class="btn btn-info" type="submit">編集する</button>
+                        {{-- <a href="{{ action('Admin\PostController@update', $post->id) }}" class="btn btn-info">
+                            編集する
+                        </a> --}}
                     </div>
                 </form>
             @endif

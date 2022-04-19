@@ -15,8 +15,10 @@ class PostController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
+        $user_id = Auth::id();
         $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('post_pages.index', ['posts' => $posts]);
+        return view('post_pages.index', ['posts' => $posts, 'user_id' => $user_id, 'user' => $user]);
     }
     /**
      * 投稿フォーム
@@ -34,7 +36,7 @@ class PostController extends Controller
    {
        $savedata = [
             $file_name = $request->file('video')->getClientOriginalName(),
-            $request->file('video')->storeAs('',$file_name),
+            $request->file('video')->storeAs('/public',$file_name),
             'git_url' => $request->git_url,
             'site_url' => $request->site_url,
             'title' => $request->title,
@@ -54,7 +56,7 @@ class PostController extends Controller
     public function edit($post_id)
     {
         $post = Post::findOrFail($post_id);
-        return view('post_pages.index', ['post' => $post]);
+        return view('post_pages.edit', ['post' => $post]);
     }
     
     
@@ -64,8 +66,8 @@ class PostController extends Controller
     public function update(PostRequest $request)
     {
         $savedata = [
-            $file_name = $request->file('video')->getClientOriginalName(),
-            $request->file('video')->storeAs('',$file_name),
+            // $file_name = $request->file('video')->getClientOriginalName(),
+            // $request->file('video')->storeAs('',$file_name),
             'git_url' => $request->git_url,
             'site_url' => $request->site_url,
             'title' => $request->title,
@@ -77,6 +79,12 @@ class PostController extends Controller
         $post->fill($savedata)->save();
     
         return redirect('/post_pages')->with('poststatus', '投稿を編集しました');
+    }
+
+    public function destroy($id)
+    {
+        Post::where('id', $id)->delete();
+        return redirect('/post_pages')->with('poststatus', '削除しました');
     }
 
 }

@@ -48,7 +48,7 @@ use Illuminate\Support\Facades\Route;
     // Route::get('/post', 'Admin\PostController@create')->name('post.create');
     // Route::post('/post', 'Admin\PostController@store')->name('post.store');
 
-    Route::resource('post_pages', 'Admin\PostController', ['only' => ['index', 'create', 'store','edit', 'update']]);
+    Route::resource('post_pages', 'Admin\PostController', ['only' => ['index', 'create', 'store', 'edit', 'update', 'destroy']]);
 
     Route::get('change', 'Auth\ChangePasswordController@showChangePasswordForm')->name('password.form');
     Route::post('change', 'Auth\ChangePasswordController@ChangePassword')->name('password.change');

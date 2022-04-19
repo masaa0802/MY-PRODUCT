@@ -12,18 +12,19 @@ class UserController extends Controller
     /*メールアドレス編集*/
 
     //userデータの編集
-    public function edit() {
-        return view('pages.myprofileedit', ['user' => Auth::user() ]);
+    public function edit($id) {
+        $user = Auth::user()
+        return view('pages.myprofileedit', ['user' => $user ]);
     }
     //userデータの保存
-    public function update(Request $request) {
+    public function update($id,Request $request) {
 
         $user_form = $request->all();
         $user = Auth::user();
 
         $avater = $request->file('avater');
         if ($avater != null) {
-            $user_form['avater'] = $this->saveProfileImage($avater); // return file name
+            $user_form['avater'] = $this->saveProfileImage($avater, $id); // return file name
         }
 
         //不要な「_token」の削除
@@ -39,7 +40,7 @@ class UserController extends Controller
         return view('myprofileedit', ['user' => $user]);
     }
 
-    private function saveProfileImage($image) {
+    private function saveProfileImage($image,$id) {
         // get instance
         $img = \Image::make($image);
         // resize
@@ -47,7 +48,7 @@ class UserController extends Controller
             $constraint->upsize(); 
         });
         // save
-        $file_name = 'profile_'.'.'.$image->getClientOriginalExtension();
+        $file_name = 'profile_'.$id.'.'.$image->getClientOriginalExtension();
         $save_path = 'public/profiles/'.$file_name;
         Storage::put($save_path, (string) $img->encode());
         // return file name

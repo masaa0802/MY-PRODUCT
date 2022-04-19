@@ -10,11 +10,11 @@
         </div>
         <div class="button">
             <i class="fa-solid fa-paper-plane"></i>
-            <a class="header-menu" href="/about">新規投稿</a>
+            <a class="header-menu" href="/post_pages/create">新規投稿</a>
         </div>
         <div class="button">
             <i class="fa-solid fa-rectangle-list"></i>
-            <a class="header-menu" href="/register">みんなの投稿</a>
+            <a class="header-menu" href="/post_pages">みんなの投稿</a>
         </div>
         
         <form method="POST" action="{{ route('logout') }}">

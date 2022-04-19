@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::resource('user', 'UserController');
+    Route::resource('user', 'Admin\UserController');
     Route::get('/', function () {
         return view('pages.top');
     });
@@ -41,8 +41,15 @@ use Illuminate\Support\Facades\Route;
     Route::get('/delete_complete', function () {
         return view('pages.delete_complete');
     });
-    
-    
+
+    Route::get('/index', function () {
+        return view('post.index');
+    });
+    // Route::get('/post', 'Admin\PostController@create')->name('post.create');
+    // Route::post('/post', 'Admin\PostController@store')->name('post.store');
+
+    Route::resource('post_pages', 'Admin\PostController', ['only' => ['index', 'create', 'store','edit', 'update']]);
+
     Route::get('change', 'Auth\ChangePasswordController@showChangePasswordForm')->name('password.form');
     Route::post('change', 'Auth\ChangePasswordController@ChangePassword')->name('password.change');
     

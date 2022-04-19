@@ -13,6 +13,12 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
     use SoftDeletes; 
+
+    // postsテーブルとのリレーション（主テーブル側）
+    public function posts() 
+    { //1対多の「多」側なので複数形
+        return $this->hasMany('App\Models\Post');
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -46,5 +52,6 @@ class User extends Authenticatable
 
 
     protected $dates = ['deleted_at'];
+    
     
 }

@@ -10284,7 +10284,7 @@ readers do not read off random characters that represent icons */
 }
 
 .login-box {
-  height: 330px;
+  height: 80%;
   width: 500px;
   margin: 40px;
   background-color: rgba(212, 212, 255, 0.3607843137);
@@ -10336,6 +10336,10 @@ p {
   border: 4px solid rgba(255, 0, 0, 0.32);
   padding: 20px;
   margin: 30px;
+}
+
+.box {
+  background-color: rgba(0, 0, 0, 0.155);
 }
 
 /*!

@@ -14,7 +14,7 @@
         <header>
             @include('includes.header')
         </header>
-        <main class="text-center">
+        <main>
             <script>
                 document.getElementById('logout').addEventListener('click', function(event) {
                     event.preventDefault();

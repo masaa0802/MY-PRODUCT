@@ -24,6 +24,7 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
+            'video' =>'required',
             'git_url' => 'required|max:50',
             'title' => 'required|max:80',
             'body' => 'required|max:350',
@@ -37,6 +38,7 @@ class PostRequest extends FormRequest
     public function messages()
     {
         return [
+            'video.required' => '動画ファイルを選択してください',
             'git_url.required' => 'GitHubのURLを入力してください',
             'title.required' => 'タイトルを入力してください',
             'title.max' => 'タイトルは80文字以内で入力してください',

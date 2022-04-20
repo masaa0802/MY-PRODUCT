@@ -33,7 +33,6 @@ class UserController extends Controller
     // // 退会機能
     public function destroy()
     {
-
         $user = User::find();
         $user->delete();
         return redirect('/delete_complete');

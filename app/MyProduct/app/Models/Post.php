@@ -16,6 +16,7 @@ class Post extends Model
 
     // 割り当て許可
     protected $fillable = [
+        'video',
         'git_url',
         'site_url',
         'title', 

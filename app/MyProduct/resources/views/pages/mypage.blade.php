@@ -3,8 +3,9 @@
 @section('title','マイページ')
 
 @section('content')
-<h2><strong><?php $user = Auth::user(); ?>{{ $user->name }}さんのマイページ</strong></h2>
-<p>ユーザー登録日時：{{ $user->created_at }}</p>
+<img src="img/default.jpg" class="d-block rounded-circle mb-3" style="width:5%; height:5%;">
+<h2 class="m-4"><strong><?php $user = Auth::user(); ?>{{ $user->name }}さんのマイページ</strong></h2>
+<p class="m-4">ユーザー登録日時：{{ $user->created_at }}</p>
 <!-- Authentication -->
 <div class="container">
     <div class="row" style="margin-top: 50px;">

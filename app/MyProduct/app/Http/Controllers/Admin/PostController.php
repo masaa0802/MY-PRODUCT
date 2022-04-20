@@ -36,7 +36,7 @@ class PostController extends Controller
    {
        $savedata = [
             $file_name = $request->file('video')->getClientOriginalName(),
-            $request->file('video')->storeAs('/public',$file_name),
+            'video' => $request->file('video')->storeAs('public/video',$file_name),
             'git_url' => $request->git_url,
             'site_url' => $request->site_url,
             'title' => $request->title,
@@ -66,8 +66,8 @@ class PostController extends Controller
     public function update(PostRequest $request)
     {
         $savedata = [
-            // $file_name = $request->file('video')->getClientOriginalName(),
-            // $request->file('video')->storeAs('',$file_name),
+            $file_name = $request->file('video')->getClientOriginalName(),
+            $request->file('video')->storeAs('',$file_name),
             'git_url' => $request->git_url,
             'site_url' => $request->site_url,
             'title' => $request->title,

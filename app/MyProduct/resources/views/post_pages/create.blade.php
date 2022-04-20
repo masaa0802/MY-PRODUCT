@@ -3,6 +3,8 @@
 @section('title','新規投稿')
 
 @section('content')
+
+<h2 class="m-4"><strong>新規投稿</strong></h2>
 <div class="container">
     <div class="row">
         <div class="col"></div>
@@ -11,8 +13,13 @@
                 <form action="{{ route('post_pages.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div>
-                        <input type="file" id="video" name="video" class="form-control">
+                        <input type="file" id="video" name="video" class="form-control {{ $errors->has('video') ? 'is-invalid' : '' }}">
                     </div>
+                    @if ($errors->has('video'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('video') }}
+                        </div>
+                    @endif
                     <div>
                         <label for="git_url" class="mt-3">GitHubのURL:</label>
                         <input name="git_url" class="form-control {{ $errors->has('git_url') ? 'is-invalid' : '' }}" placeholder="例)https://github.com/"/>

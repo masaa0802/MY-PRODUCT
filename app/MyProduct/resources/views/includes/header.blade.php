@@ -3,7 +3,7 @@
         <img src="img/MY PRODUCT-logo.png" width="450" height="100">
     </a>
     @if(Auth::check())
-    <div class="buttons">
+    <div class="buttons ">
         <div class="button">
             <i class="fa-solid fa-user"></i>
             <a class="header-menu" href="/mypage">マイページ</a>

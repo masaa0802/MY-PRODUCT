@@ -10,7 +10,7 @@
     </div>
 @endif
 
-<h2 class="m-4"><strong>みんなの投稿</strong></h2>
+<h2 class="m-4 mb-0"><strong>みんなの投稿</strong></h2>
 @if (count($posts) > 0)
     <div class="container">
         <div class="row">
@@ -19,12 +19,11 @@
                 @foreach ($posts as $post)
                 <div class="box p-3 m-4">
                     <div class="box-head d-flex flex-row bd-highlight">
-                        <img src="img/default.jpg" class="d-block rounded-circle mb-3" style="width:10%; height:10%;">
-                        {{-- <img src="{{ asset('img'.$post->user->avatar) }}" class="d-block rounded-circle mb-3"> --}}
+                        <img src="{{ asset('storage/avater_img/'.$post->user->avatar) }}" class="d-block rounded-circle mb-3" style="width:50px; height:50px;">
                         <p class="mt-3 m-3" style="font-size: 130%;"><strong>{{ $post->user->name }}</strong></p>
                         <p class="pt-2 mt-3 m-3" style="font-size: 15%;">投稿日:{{ $post->created_at }}</p>
                     </div>
-                    <div class="mt-3">
+                    <div class="mt-0">
                         <video controls loop autoplay muted width="500px" height="300px" src="{{ Storage::url($post->video)}}" type="video/mp4">
                     </div>
                     @if ($user_id == $post->user_id)
@@ -37,10 +36,10 @@
                         </form>
                     </div>
                     @endif
-                    <div class="mt-3"><strong>GitHubのURL: </strong>{{ $post->git_url }}</div>
-                    <div class="mt-3"><strong>サイトのURL: </strong>{{ $post->site_url }}</div>
-                    <div class="mt-3"><strong>{{ $post->title }}</strong></div>
-                    <div class="mt-3">{!!nl2br(e( $post->body ))!!}</div>
+                    <div class="mt-3" style="position:relative; left:10px;"><strong>GitHubのURL: </strong>{!!nl2br($post->makeLink(e( $post->git_url ))) !!}</div>
+                    <div class="mt-3" style="position:relative; left:10px;"><strong>サイトのURL: </strong>{!!nl2br($post->makeLink(e( $post->site_url ))) !!}</div>
+                    <div class="mt-3" style="font-size:20px; position:relative; left:10px;"><strong>{{ $post->title }}</strong></div>
+                    <div class="mt-3 mb-3" style="position:relative; left:10px;">{!!nl2br(e( $post->body ))!!}</div>
                 </div>
                 @endforeach
             </div>

@@ -19,8 +19,13 @@ class UserController extends Controller
     //userデータの保存
     public function update(Request $request) {
 
-        $user_form = $request->all();
         $user = Auth::user();
+        $user_form = $request->all();
+
+        $avatar = $request->file('avatar');
+        if ($avatar != null) {
+            $user_form['avatar'] = $this->saveProfileImage($avatar); // return file name
+        }
 
         //不要な「_token」の削除
         unset($user_form['_token']);
@@ -28,6 +33,22 @@ class UserController extends Controller
         $user->fill($user_form)->save();
         //リダイレクト
         return redirect('/mypage');
+    }
+
+    private function saveProfileImage($image) {
+        // get instance
+        $img = \Image::make($image);
+        // resize
+        $img->fit(100, 100, function($constraint){
+            $constraint->upsize(); 
+        });
+
+        // // save
+        $avatar = request()->file('avatar')->getClientOriginalName();
+        request()->file('avatar')->storeAs('public/avater_img', $avatar);
+
+        // return file name
+        return $avatar;
     }
 
     // // 退会機能

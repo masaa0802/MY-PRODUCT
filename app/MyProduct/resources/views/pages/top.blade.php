@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="top-content">
+<div class="top-content mt-2">
     <div class="container">
         <div class="row">
             <div class="col align-self-end">
@@ -30,17 +30,14 @@
                         <div>
                             <x-label for="email" :value="__('メールアドレス')" />
 
-                            <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                            <x-input id="email" class="login_email mt-1 form-control" type="email" name="email" style="width: 60%; left: 20%; position: relative;" :value="old('email')" required autofocus />
                         </div>
 
                         <!-- Password -->
                         <div class="mt-4">
                             <x-label for="password" :value="__('パスワード')" />
 
-                            <x-input id="password" class="block mt-1 ml-3 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+                            <x-input id="password" class="login_password mt-1 ml-3 form-control" type="password" name="password" style="width: 60%; left: 20%; position: relative;" required autocomplete="current-password" />
                         </div>
 
                         <!-- Remember Me -->

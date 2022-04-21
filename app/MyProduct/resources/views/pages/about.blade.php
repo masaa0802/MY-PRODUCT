@@ -3,7 +3,7 @@
 @section('title','About画面')
 
 @section('content')
-<h2 class="m-4"><strong>MY PRODUCTについて</strong></h2>
+<h2 class="m-4 mt-0"><strong>MY PRODUCTについて</strong></h2>
 <div class="top-content">
     <div class="container">
         <div class="row">

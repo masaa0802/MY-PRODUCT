@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h2 class="m-4"><strong>新規投稿</strong></h2>
+<h2 class="m-4 mb-0"><strong>新規投稿</strong></h2>
 <div class="container">
     <div class="row">
         <div class="col"></div>
@@ -13,6 +13,7 @@
                 <form action="{{ route('post_pages.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div>
+                        <label for="video" class="mt-3">*動画</label>
                         <input type="file" id="video" name="video" class="form-control {{ $errors->has('video') ? 'is-invalid' : '' }}">
                     </div>
                     @if ($errors->has('video'))
@@ -21,7 +22,7 @@
                         </div>
                     @endif
                     <div>
-                        <label for="git_url" class="mt-3">GitHubのURL:</label>
+                        <label for="git_url" class="mt-3">*GitHubのURL:</label>
                         <input name="git_url" class="form-control {{ $errors->has('git_url') ? 'is-invalid' : '' }}" placeholder="例)https://github.com/"/>
                     </div>
                     @if ($errors->has('git_url'))
@@ -31,7 +32,7 @@
                     @endif
 
                     <div>
-                        <label for="site_url" class="mt-3">サイトのURL:</label>
+                        <label for="site_url" class="mt-3">(任意)サイトのURL:</label>
                         <input name="site_url" class="form-control {{ $errors->has('site_url') ? 'is-invalid' : '' }}" placeholder="例)https://www.google.com"/>
                     </div>
                     @if ($errors->has('site_url'))
@@ -40,7 +41,7 @@
                         </div>
                     @endif
                     <div>
-                        <label for="title" class="mt-3">タイトル:</label>
+                        <label for="title" class="mt-3">*タイトル:</label>
                         <input name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" placeholder="タイトルの入力欄"/>
                     </div>
                     @if ($errors->has('title'))

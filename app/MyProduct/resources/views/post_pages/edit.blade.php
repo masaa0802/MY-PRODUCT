@@ -11,9 +11,9 @@
                 <form action="{{ route('post_pages.update', $post->id) }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    {{-- <div>
+                    <div>
                         <input type="file" id="video" name="video" class="form-control" value="{{ old('video') ?: $post->video }}">
-                    </div> --}}
+                    </div>
                     <div>
                         <label for="git_url" class="mt-3">GitHubのURL:</label>
                         <input name="git_url" value="{{ old('git_url') ?: $post->git_url }}" class="form-control  {{ $errors->has('git_url') ? 'is-invalid' : '' }}" placeholder="例)https://github.com/"/>

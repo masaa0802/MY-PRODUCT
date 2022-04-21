@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
         $avatar=request()->file('avatar')->getClientOriginalName();
-        request()->file('avatar')->storeAs('public/img', $avatar);
+        request()->file('avatar')->storeAs('public/avater_img', $avatar);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

@@ -18,8 +18,8 @@
                 {{-- Avater --}}
                 <div class="mt-4 mt-0">
                     <label for="avatar">{{ __('プロフィール画像 (サイズは1024Kbyteまで）') }}</label>
-                    <div class="col-md-6">
-                        <input id="avatar" type="file" name="avatar" class="@error('avatar') is-invalid @enderror">
+                    <div class="col">
+                        <input id="avatar" type="file" name="avatar" class="form-control @error('avatar') is-invalid @enderror">
                         @error('avatar')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

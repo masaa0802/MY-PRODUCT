@@ -9,7 +9,6 @@
         {{ session('poststatus') }}
     </div>
 @endif
-
 <h2 class="m-4 mb-0"><strong>みんなの投稿</strong></h2>
 @if (count($posts) > 0)
     <div class="container">

@@ -23,7 +23,6 @@
                             <label for="avater">プロフィール画像</label>
                             <div class="box-head d-flex flex-row bd-highlight">
                                 <img src="{{ asset('storage/avater_img/'.$user->avatar) }}" class="m-3 d-block rounded-circle mb-3" style="width:50px; height:50px; position: relative; left: 40%;" id="img">
-
                             </div>
                             <input id="avatar" type="file" name="avatar" class="form-control mb-2" style="width: 60%; left: 20%; position: relative;" onchange="previewImage(this);">
 

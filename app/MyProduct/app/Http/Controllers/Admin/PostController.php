@@ -34,15 +34,15 @@ class PostController extends Controller
     */
    public function store(PostRequest $request)
    {
-       $savedata = [
+        $savedata = [
             $file_name = $request->file('video')->getClientOriginalName(),
             'video' => $request->file('video')->storeAs('public/video',$file_name),
             'git_url' => $request->git_url,
             'site_url' => $request->site_url,
             'title' => $request->title,
             'body' => $request->body,
-            'user_id' => $request->user()->id
-       ];
+            'user_id' => $request->user()->id,
+        ];
     
        $post = new Post;
        $post->fill($savedata)->save();
@@ -73,8 +73,8 @@ class PostController extends Controller
             'title' => $request->title,
             'body' => $request->body,
             'user_id' => $request->user()->id
-        ];
-    
+       ];
+        
         $post = new Post;
         $post->fill($savedata)->save();
     

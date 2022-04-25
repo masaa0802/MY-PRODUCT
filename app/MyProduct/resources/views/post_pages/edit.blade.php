@@ -3,6 +3,7 @@
 @section('title','投稿編集')
 
 @section('content')
+<h2 class="m-4 mb-0"><strong>投稿編集</strong></h2>
 <div class="container">
     <div class="row">
         <div class="col"></div>
@@ -43,21 +44,18 @@
                         </div>
                     @endif
                     <div>
-                        <textarea name="body" rows="10" class="mt-3 form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" placeholder="内容の入力" style="height:200px;">{!!nl2br(e(old('body') ?: $post->body))!!}</textarea>
+                        <textarea name="body" rows="10" class="mt-3 form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" placeholder="内容の入力" style="height:200px;">{!!nl2br($post->body)!!}</textarea>
                     </div>
                     @if ($errors->has('body'))
                         <div class="invalid-feedback">
                             {{ $errors->first('body') }}
                         </div>
                     @endif
-                    <div class="mt-5">
-                        <a class="btn btn-secondary" href="{{ route('post_pages.index', $post->id) }}">
+                    <div class="mt-3 text-center">
+                        <a class="m-3 btn btn-secondary" href="{{ route('post_pages.index', $post->id) }}">
                             キャンセル
                         </a>
-                        <button class="btn btn-info" type="submit">編集する</button>
-                        {{-- <a href="{{ action('Admin\PostController@update', $post->id) }}" class="btn btn-info">
-                            編集する
-                        </a> --}}
+                        <button class="m-3 btn btn-info" type="submit">編集する</button>
                     </div>
                 </form>
             @endif

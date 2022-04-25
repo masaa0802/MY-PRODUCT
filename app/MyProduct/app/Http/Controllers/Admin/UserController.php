@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    /*メールアドレス編集*/
 
     //userデータの編集
     public function edit() {
@@ -34,7 +33,8 @@ class UserController extends Controller
         //リダイレクト
         return redirect('/mypage');
     }
-
+    
+    // ユーザ画像の保存
     private function saveProfileImage($image) {
         // get instance
         $img = \Image::make($image);
@@ -52,9 +52,9 @@ class UserController extends Controller
     }
 
     // // 退会機能
-    public function destroy()
+    public function destroy($id)
     {
-        $user = User::find();
+        $user = User::find($id);
         $user->delete();
         return redirect('/delete_complete');
     }

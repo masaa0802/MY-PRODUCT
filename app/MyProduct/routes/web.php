@@ -42,7 +42,9 @@ use Illuminate\Support\Facades\Route;
         return view('pages.delete_complete');
     });
  
-    Route::resource('post_pages', 'Admin\PostController', ['only' => ['index', 'create', 'store', 'edit', 'update', 'destroy']]);
+    Route::resource('post_pages', 'Admin\PostController', ['only' => ['index', 'create' ,'store', 'edit', 'update', 'destroy']]);
+    // Route::get('/create','Admin\PostController@create')->name('post_pages.create');
+    
 
     Route::get('change', 'Auth\ChangePasswordController@showChangePasswordForm')->name('password.form');
     Route::post('change', 'Auth\ChangePasswordController@ChangePassword')->name('password.change');

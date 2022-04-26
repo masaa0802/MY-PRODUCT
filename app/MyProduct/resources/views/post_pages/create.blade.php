@@ -56,7 +56,8 @@
                             </div>
                         @endif
                     </div>
-                    <button class="mt-3 btn btn-primary" type="submit">送信</button>
+                    <a class="btn btn-secondary mt-3 m-2" href="{{ route('post_pages.index' ) }}">戻る</a>
+                    <button class="mt-3 m-2 btn btn-primary" type="submit">送信</button>
                 </form>
             @endif
         </div>

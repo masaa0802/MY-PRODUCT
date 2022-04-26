@@ -1,6 +1,6 @@
 <div class="header">
     <a class="logo" href="/">
-        <img src="img/MY PRODUCT-logo.png" width="450" height="100">
+        <img src="/img/MY PRODUCT-logo.png" width="450" height="100">
     </a>
     @if(Auth::check())
     <div class="buttons ">

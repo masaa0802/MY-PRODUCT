@@ -18,8 +18,8 @@
                 @foreach ($posts as $post)
                 <div class="box p-3 m-4">
                     <div class="box-head d-flex flex-row bd-highlight">
-                        <img src="{{ asset('storage/avater_img/'.$post->user->avatar) }}" class="d-block rounded-circle mb-3" style="width:50px; height:50px;">
-                        <p class="mt-3 m-3" style="font-size: 130%;"><strong>{{ $post->user->name }}</strong></p>
+                        <img src="{{ asset('storage/avater_img/'.$post->user->avatar??'') }}" class="d-block rounded-circle mb-3" style="width:50px; height:50px;">
+                        <p class="mt-3 m-3" style="font-size: 130%;"><strong>{{ $post->user->name??''}}</strong></p>
                         <p class="pt-2 mt-3 m-3" style="font-size: 15%;">投稿日:{{ $post->created_at }}</p>
                     </div>
                     <div class="mt-0">

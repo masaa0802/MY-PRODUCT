@@ -48,9 +48,11 @@
                                 <input id="password-confirm" type="password" class="mb-3 form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
+                                <a class="btn btn-secondary mt-3 m-3" href="{{ route('mypage' ) }}">
+                                    戻る
+                                </a>
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('パスワードを変更') }}
                                 </button>

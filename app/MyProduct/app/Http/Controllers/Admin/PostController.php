@@ -53,31 +53,42 @@ class PostController extends Controller
    /**
      * 編集画面
      */
-    public function edit($post_id)
+    /**
+    * Show the form for editing the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function edit($id)
     {
-        $post = Post::findOrFail($post_id);
-        return view('post_pages.edit', ['post' => $post]);
+        $post = Post::find($id);
+        return view('post_pages.edit', compact('post'));
     }
     
     
     /**
      * 編集実行
      */
-    public function update(PostRequest $request)
+    /**
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function update(PostRequest $request, $id)
     {
-        $savedata = [
-            $file_name = $request->file('video')->getClientOriginalName(),
-            'video' => $request->file('video')->storeAs('public/video',$file_name),
-            'git_url' => $request->git_url,
-            'site_url' => $request->site_url,
-            'title' => $request->title,
-            'body' => $request->body,
-            'user_id' => $request->user()->id
-       ];
-        
-        $post = new Post;
-        $post->fill($savedata)->save();
-    
+        $post = Post::find($id);
+        $post->user_id = Auth::id();
+        $file_name = $request->file('video')->getClientOriginalName();
+        $post->video = $request->file('video')->storeAs('public/video',$file_name);
+        $post->git_url = $request->input('git_url');
+        $post->site_url = $request->input('site_url');
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+
+        $post->save();
+
         return redirect('/post_pages')->with('poststatus', '投稿を編集しました');
     }
 

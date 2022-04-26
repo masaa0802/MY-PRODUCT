@@ -19,6 +19,7 @@ class User extends Authenticatable
     { //1対多の「多」側なので複数形
         return $this->hasMany('App\Models\Post');
     }
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *

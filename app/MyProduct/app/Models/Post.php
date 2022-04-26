@@ -14,6 +14,7 @@ class Post extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    protected $table = 'posts';
     // 割り当て許可
     protected $fillable = [
         'video',

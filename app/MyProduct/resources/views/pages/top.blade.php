@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col align-self-end">
-                <img src="img/men.png" width="170" height="200">
+                <img src="img/men.png" width="200" height="200">
             </div>
             <div class="col-7">
                 <h1><strong>自分だけの『PRODUCT』を共有しよう</strong></h1>
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="col">
-                <img src="img/women.png" width="170" height="200">
+                <img src="img/women.png" width="200" height="200">
             </div>
         </div>
     </div>

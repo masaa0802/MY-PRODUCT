@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
         return view('auth.register');
     });
 
-    Route::get('myprofileedit', 'Admin\UserController@edit');
+    Route::get('/myprofileedit', 'Admin\UserController@edit');
     Route::post('myprofileedit', 'Admin\UserController@update');
 
 

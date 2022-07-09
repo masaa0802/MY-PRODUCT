@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    protected $table='post';
 
     // usersテーブルとのリレーション（従テーブル側）
     public function user() { //1対多の「１」側なので単数系
@@ -18,7 +19,7 @@ class Post extends Model
         'video',
         'git_url',
         'site_url',
-        'title', 
+        'title',
         'body',
         'user_id'
     ];

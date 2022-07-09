@@ -12,10 +12,12 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    use SoftDeletes; 
+    use SoftDeletes;
+    
+    protected $table='user';
 
     // postsテーブルとのリレーション（主テーブル側）
-    public function posts() 
+    public function posts()
     { //1対多の「多」側なので複数形
         return $this->hasMany('App\Models\Post');
     }
@@ -52,6 +54,6 @@ class User extends Authenticatable
 
 
     protected $dates = ['deleted_at'];
-    
-    
+
+
 }
